@@ -114,18 +114,17 @@ public class TicTacToe {
 		return board[2] == board[5] && board[5] == board[8];
 	}
 
-	public boolean isGameOver() {
+	public String isGameOver() {
 		boolean didSomeoneWin = isThereAWinner();
 		String WinnerName = getWinnerName();
 		if (didSomeoneWin) {
-			System.out.println("We have a winner!!!!!!!!!!!");
-			System.out.println("And the Winner is " + WinnerName);
+			return "We have a winner!!!!!!!!!!!			And the winner is "+ getWinnerName() ;
+			//System.out.println("And the Winner is " + WinnerName);
 		} else if (isBoardFilled()) {
-			System.out.println("GAME OVER!!!!!!!!!");
+			return "GAME OVER!!!!!!!!!";
 		} else {
-			System.out.println("Not Over");
+			return "Not Over";
 		}
-		return didSomeoneWin;
 	}
 
 	public String getWinnerName() {
