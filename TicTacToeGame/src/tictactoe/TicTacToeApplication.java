@@ -1,11 +1,13 @@
 package tictactoe;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TicTacToeApplication {
 
 	public static Scanner scanner;
 	public static TicTacToe game;
+	
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -42,10 +44,13 @@ public class TicTacToeApplication {
 
 			while (game.isGameOver().equals("Not Over")) {
 				if (game.currentMarker == game.PlayerMarker) {
-					System.out.println("Your Turn!!!!!!!!!!!!!!!!!!1 \n");
+					System.out.println("Your Turn!!!!!!!!!!!!!!!!!! \n");
 					System.out.println("Enter your choice");
 					choice = scanner.nextInt();
-					game.playerTurn(choice);
+					while(!(game.playerTurn(choice))) {
+						System.out.println("Enter correct Number");
+						choice = scanner.nextInt();
+					}
 					System.out.println("You  entered the number at " + choice + "position");
 				} else {
 					Thread.sleep(1000);
@@ -64,8 +69,14 @@ public class TicTacToeApplication {
 			System.out.println();
 			System.out.println("Do You want to play more");
 			char YesNo = scanner.next().charAt(0);
-			doYouWantToPlay = (YesNo == 'Y' || YesNo == 'y') ? true : false;
+			doYouWantToPlay = (YesNo=='Y' || YesNo=='y')? true : false;
+			if(doYouWantToPlay) {
+				clearScreen();
+			}
 		}
 
+	}
+	public static void clearScreen() {  
+		System.out.flush(); 
 	}
 }
