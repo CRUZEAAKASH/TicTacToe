@@ -64,9 +64,8 @@ public class TicTacToeApplication {
 			System.out.println();
 			System.out.println("Do You want to play more");
 			char YesNo = scanner.next().charAt(0);
-			doYouWantToPlay = (YesNo=='Y' || YesNo=='y')? true : false;
+			doYouWantToPlay = (YesNo == 'Y' || YesNo == 'y') ? true : false;
 		}
 
 	}
-
 }
